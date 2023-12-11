@@ -3,20 +3,28 @@ import { iQuestionData } from "../utils/interface";
 
 const questionModel = new Schema<iQuestionData>(
   {
-    idNum: {
-      type: Number,
-    },
     questionText: {
       type: String,
     },
     answer: {
       type: String,
     },
-    options: [
-      {
-        type: Array<String>,
-      },
-    ],
+    a: {
+      type: String,
+      required: true,
+    },
+    b: {
+      type: String,
+      required: true,
+    },
+    c: {
+      type: String,
+      required: true,
+    },
+    d: {
+      type: String,
+      required: true,
+    },
   },
 
   { timestamps: true }

@@ -3,11 +3,13 @@ import questionModel from "../Model/questionModel";
 
 export const createQuestion = async (req: Request, res: Response) => {
   try {
-    const { idNum, questionText, options, answer } = req.body;
+    const { a, b, c, d, questionText, answer } = req.body;
     const questions = await questionModel.create({
-      idNum,
+      a,
+      b,
+      c,
+      d,
       questionText,
-      options,
       answer,
     });
     return res.status(201).json({

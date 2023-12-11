@@ -6,12 +6,12 @@ export interface iUser {
   regNum: number;
 }
 
-
-
 export interface iQuestion {
   questionText: string;
-  options: Array<string>;
-  idNum: number;
+  a: string;
+  b: string;
+  c: string;
+  d: string;
   answer: string;
 }
 

@@ -14,8 +14,9 @@ const UserModel = new Schema<iUserData>(
       toLowerCase: true,
     },
     regNum: {
-      type: Number,
+      type: String,
       required: true,
+
     },
   },
   { timestamps: true }

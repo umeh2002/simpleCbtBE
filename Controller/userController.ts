@@ -3,12 +3,12 @@ import userModel from "../Model/userModel";
 
 export const createUser = async (req: Request, res: Response) => {
   try {
-    const { name, email, reqNum } = req.body;
+    const { name, email, regNum } = req.body;
 
     const user = await userModel.create({
       name,
       email,
-      reqNum,
+      regNum,
     });
 
     return res.status(201).json({
@@ -44,6 +44,24 @@ export const getOne = async (req: Request, res: Response) => {
     const { userID } = req.params;
 
     const user = await userModel.findById(userID);
+
+    return res.status(200).json({
+      message: "Success",
+      data: user,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      message: "error",
+      data: error.message,
+    });
+  }
+};
+
+export const deleteOne = async (req: Request, res: Response) => {
+  try {
+    const { userID } = req.params;
+
+    const user = await userModel.findByIdAndDelete(userID);
 
     return res.status(200).json({
       message: "Success",

@@ -3,7 +3,7 @@ import { Document } from "mongoose";
 export interface iUser {
   name: string;
   email: string;
-  regNum: number;
+  regNum: string;
 }
 
 export interface iQuestion {

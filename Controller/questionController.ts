@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import questionModel from "../Model/questionModel";
+import userModel from "../Model/userModel";
 
 export const createQuestion = async (req: Request, res: Response) => {
   try {
@@ -76,15 +77,21 @@ export const deleteOneQuestion = async (req: Request, res: Response) => {
 
 export const answerQuestion = async (req: Request, res: Response) => {
   try {
-    const { questionID } = req.params;
+    const { userID, questionID } = req.params;
     const { pick } = req.body;
 
+    const user = await userModel.findById(userID);
     const questions = await questionModel.findById(questionID);
 
-    if (questions) {
+    console.log(questions)
+
+    if (questions && user) {
       if (pick === questions.answer) {
+        user.totalScore += 10
+      await user.save()
         return res.status(200).json({
-          message: "answer selected is corect",
+          message: "answer selected is correct",
+          data:user.totalScore
         });
       } else {
         return res.status(404).json({

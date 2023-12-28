@@ -16,8 +16,11 @@ const UserModel = new Schema<iUserData>(
     regNum: {
       type: String,
       required: true,
-
     },
+    totalScore:{
+      type: Number,
+      default:0
+    }
   },
   { timestamps: true }
 );

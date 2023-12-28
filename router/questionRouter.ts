@@ -12,7 +12,7 @@ const questionRouter = Router();
 questionRouter.route("/create-question").post(createQuestion);
 questionRouter.route("/get-questions").get(getAllQuestions);
 questionRouter.route("/:questionID/get-one-question").get(getOneQuestion);
-questionRouter.route("/:questionID/answer-question").get(answerQuestion);
+questionRouter.route("/:userID/:questionID/answer-question").post(answerQuestion);
 questionRouter
   .route("/:questionID/delete-one-question")
   .delete(deleteOneQuestion);

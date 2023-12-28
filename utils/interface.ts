@@ -4,6 +4,7 @@ export interface iUser {
   name: string;
   email: string;
   regNum: string;
+  totalScore:number;
 }
 
 export interface iQuestion {
